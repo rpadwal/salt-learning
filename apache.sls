@@ -8,7 +8,10 @@ install_apache:
 
 start_apache:
   service.running:
+    {% if salt.grains.get('os_family') == 'Debian' %}
     - name: apache2
+    {% elif salt.grains.get('os_family') == 'RedHat' %}
+    - name: httpd
 
 add_welcomepage:
   file.managed:
