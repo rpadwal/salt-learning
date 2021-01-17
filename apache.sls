@@ -9,6 +9,4 @@ start_apache:
 add_welcomepage:
   file.managed:
     - name: /var/www/html/index.html
-    - contents: |
-            </doctype html>
-            <body><h1> Salted web server</h1></body>
+    - source: salt://files/index.html
