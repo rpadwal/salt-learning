@@ -1,2 +1,2 @@
-def something()
+def something():
     return 'Something happened'
