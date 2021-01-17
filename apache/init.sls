@@ -11,8 +11,3 @@ install_apache:
 start_apache:
   service.running:
     - name: {{ apache_pkg }}
-
-add_welcomepage:
-  file.managed:
-    - name: /var/www/html/index.html
-    - source: salt://files/index.html
