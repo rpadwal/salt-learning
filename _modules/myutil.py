@@ -1,2 +1,2 @@
 def something():
-    return 'Something happened'
+    return __salt__['cmd.run']('date')
