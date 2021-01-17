@@ -12,6 +12,7 @@ start_apache:
     - name: apache2
     {% elif salt.grains.get('os_family') == 'RedHat' %}
     - name: httpd
+    {% endif %}
 
 add_welcomepage:
   file.managed:
