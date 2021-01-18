@@ -3,6 +3,6 @@ name:
   firstname: Rakesh
   middlename: Prakash
   lastname: Padwal
-{%- elif grains.id == 'salt.node02.lcl %}
+{%- elif grains.id == 'salt.node02.lcl' %}
   firstname: Rajdatt
   lastname: Pawar
