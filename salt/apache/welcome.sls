@@ -2,7 +2,7 @@ check_pillar_value:
   test.check_pillar:
     - present:
       - name:
-        - server
+        - serverX
 
 add_welcomepage:
   file.managed:
