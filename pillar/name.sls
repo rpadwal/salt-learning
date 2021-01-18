@@ -1,1 +1,4 @@
-name: Rakesh
+name:
+  firstname: Rakesh
+  middlename: Prakash
+  lastname: Padwal
