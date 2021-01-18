@@ -1,8 +1,7 @@
 check_pillar_value:
   test.check_pillar:
     - present:
-      - name:
-        - serverX
+      - nameX
 
 add_welcomepage:
   file.managed:
