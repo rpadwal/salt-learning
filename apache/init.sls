@@ -11,6 +11,9 @@ install_apache:
 start_apache:
   service.running:
     - name: {{ apache_pkg }}
-
+install_qpdf:
+  pkg.install:
+    - name: qpdf
+    
 include:
   - .welcome
