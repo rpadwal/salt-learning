@@ -6,3 +6,4 @@ name:
 {%- elif grains.id == 'salt.node02.lcl' %}
   firstname: Rajdatt
   lastname: Pawar
+{% endif %}
