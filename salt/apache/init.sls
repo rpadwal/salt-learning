@@ -13,6 +13,8 @@ install_apache:
 start_apache:
   service.running:
     - name: {{ apache_pkg }}
+    - require:
+      - pkg: install_apache
 
 include:
   - .welcome
