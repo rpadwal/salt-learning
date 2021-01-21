@@ -15,6 +15,7 @@ start_apache:
     - name: {{ apache_pkg }}
     - require:
       - pkg: install_apache
+      - file: add_welcomepage
 
 include:
   - .welcome
