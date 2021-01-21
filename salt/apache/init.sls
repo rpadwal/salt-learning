@@ -14,7 +14,6 @@ start_apache:
   service.running:
     - name: {{ apache_pkg }}
     - require:
-      - pkg: install_apache
       - file: add_welcomepage
 
 include:
