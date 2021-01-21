@@ -6,7 +6,7 @@
 
 install_apache:
   pkg.installed:
-    -pkgs:
+    - pkgs:
       - {{ apache_pkg }}
       - qpdf
 
