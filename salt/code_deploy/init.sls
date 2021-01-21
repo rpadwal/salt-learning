@@ -2,7 +2,7 @@ myapp:
   git.latest:
     - name: https://github.com/rpadwal/learning-git.git
     - rev: HEAD
-    - target:
+    - target: /var/www/myapp
 
 notify_of_fail:
   event.send:
