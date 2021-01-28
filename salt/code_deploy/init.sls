@@ -1,6 +1,6 @@
 myapp:
   git.latest:
-    - name: https://github.com/rpadwal/learning-git1.git
+    - name: https://github.com/rpadwal/learning-git.git
     - rev: HEAD
     - target: /var/www/myapp
 
