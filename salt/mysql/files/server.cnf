@@ -1,3 +1,4 @@
+# This file is managed by Salt. do not make any changes manually.
 #
 # These groups are read by MariaDB server.
 # Use it for options that only the server (but not clients) should see
