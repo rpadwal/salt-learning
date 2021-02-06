@@ -3,3 +3,5 @@ mysql_server_config:
     - name: /etc/mysql/my.cnf
     - source: salt://mysql/files/my.cnf
     - makedirs: True
+    - require:
+      - pkg: mysql-server
