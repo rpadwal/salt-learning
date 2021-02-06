@@ -1,4 +1,4 @@
-{%   from "apache-map.jinja" import pkg_name with context %}
+{%   from "apache/apache-map.jinja" import pkg_name with context %}
 
 start_apache:
   service.running:
