@@ -2,6 +2,6 @@
 
 start_apache:
   service.running:
-    - name: {{ apache_pkg }}
+    - name: {{ pkg_name }}
     - require:
       - file: add_welcomepage
