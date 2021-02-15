@@ -1,12 +1,12 @@
 #!jinja|yaml|gpg
 
 name:
-{%- if grains.id == 'salt.node01.lcl' %}
+{%- if grains.id == 'node01.salt.lcl' %}
   firstname: Rakesh
   middlename: Prakash
   lastname: Padwal
   server: {{ grains.id }}
-{%- elif grains.id == 'salt.node02.lcl' %}
+{%- elif grains.id == 'node02.salt.lcl' %}
   firstname: Rajdatt
   lastname: Pawar
   server: {{ grains.id }}
@@ -26,4 +26,4 @@ name:
     P1/SSFFAY2yJQjdqeicn0kMBQAw/qHsV8ifw3aeZWwhX0Osl4n6RZV7KLP10RKnc
     81OUCI4HGPHmQcZ9PKclk0p8tm40Ls72iqdQQ5S5RQ3l0mWk
     =zG52
-    -----END PGP MESSAGE-----  
+    -----END PGP MESSAGE-----
