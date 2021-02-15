@@ -1,7 +1,6 @@
 restore_welcome_page_config:
-  local.state.single:
+  local.state.sls:
     - tgt: '*'
     - args:
-      - fun: file.managed
-      - name: /var/www/html/index.html
-      - source: salt://files/index.html
+      - "apache"
+      - "apache.welcome"
