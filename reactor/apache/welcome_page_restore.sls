@@ -1,5 +1,6 @@
 restore_welcome_page_config:
-  local.state.apply:
+  local.state.sls:
     - tgt: '*'
     - args:
+      - 'apache.install'
       - 'apache.welcome'
