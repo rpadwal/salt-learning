@@ -3,5 +3,5 @@ restore_welcome_page_config:
     - tgt: {{ data['id'] }}
     - kwarg
         mods:
-          apache.welcome'
+          apache.welcome
         test: False
