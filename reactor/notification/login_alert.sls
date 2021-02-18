@@ -2,7 +2,8 @@ slack-message:
   local.state.single:
     - tgt: {{ data['id'] }}
     - args:
-      - slack.post_message
+      - fun: slack.post_message
+      - name: 'LoginAlert'
     - kwarg:
       - from_name: {{ data['id'] }}
       - message: 'Someone login to minion server.'
