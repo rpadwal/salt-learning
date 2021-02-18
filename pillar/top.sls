@@ -2,4 +2,4 @@ base:
   '*':
     - name
     - beacons
-    - login_beacons
+    - login_beacon
