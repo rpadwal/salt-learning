@@ -193,7 +193,7 @@ def add_repo(repo_type, url, auth=False, rebuild=False, bitbucket=False):
     return result
 
 
-def remove_repo(repo_type, url, bitbucket=Fale):
+def remove_repo(repo_type, url, bitbucket=False):
     '''
     Removes a repository from the list
 
