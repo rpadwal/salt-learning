@@ -136,7 +136,7 @@ def build(pkgs=None, repo=None):
         return error.output
 
 
-def add_repo(repo_type, url, auth=False, rebuild=False):
+def add_repo(repo_type, url, auth=False, rebuild=False, bitbucket=False):
     '''
     Add a repository to the Satis configuration file
 
@@ -156,7 +156,11 @@ def add_repo(repo_type, url, auth=False, rebuild=False):
     # Load configuration file and set vars
     configfile = _load_config()
     result = {}
-    newrepo = {'type': str(repo_type), 'url': str(url)}
+
+    if bitbucket:
+        newrepo = {'type': str(repo_type), 'url': str(url), 'options': {'ssh2': { 'username': 'release', 'pubkey_file': '/home/release/.ssh/id_rsa.pub', 'privkey_file': '/home/release/.ssh/id_rsa' } } }
+    else:
+        newrepo = {'type': str(repo_type), 'url': str(url)}
 
     # Iterate through the list and make sure that the new repo does not already exist
     for i, val in enumerate(configfile['repositories']):
