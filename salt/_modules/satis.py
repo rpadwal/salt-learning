@@ -193,7 +193,7 @@ def add_repo(repo_type, url, auth=False, rebuild=False, bitbucket=False):
     return result
 
 
-def remove_repo(repo_type, url):
+def remove_repo(repo_type, url, bitbucket=Fale):
     '''
     Removes a repository from the list
 
@@ -211,7 +211,11 @@ def remove_repo(repo_type, url):
     # Load configuration file and set vars
     configfile = _load_config()
     result = {}
-    deadrepo = {'type': str(repo_type), 'url': str(url)}
+
+    if bitbucket:
+        deadrepo = {'type': str(repo_type), 'url': str(url), 'options': {'ssh2': { 'username': 'release', 'pubkey_file': '/home/release/.ssh/id_rsa.pub', 'privkey_file': '/home/release/.ssh/id_rsa' } } }
+    else:
+        deadrepo = {'type': str(repo_type), 'url': str(url)}
 
     # Iterate through the list and make sure that the repo exists
     for i, val in enumerate(configfile['repositories']):
