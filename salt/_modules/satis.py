@@ -221,7 +221,7 @@ def remove_repo(repo_type, url, bitbucket=False):
     for i, val in enumerate(configfile['repositories']):
         if val == deadrepo:
             configfile['repositories'].remove(deadrepo)
-            log.info("Removed repo %s of type %s at index %s", str(url), str(repo_type), str(i))
+            #log.info("Removed repo %s of type %s at index %s", str(url), str(repo_type), str(i))
 
     # Note the new repository list
     result['list'] = configfile['repositories']
@@ -231,7 +231,7 @@ def remove_repo(repo_type, url, bitbucket=False):
 
     # Write out the change to the file
     result['file'] = _write_config(configfile)
-    log.info("Removing repository type %s, URL %s from the repository list.", str(repo_type), str(url))
+    #log.info("Removing repository type %s, URL %s from the repository list.", str(repo_type), str(url))
 
     # Run the rebuild command to apply the changes
     # result['rebuild'] = build()
