@@ -11,18 +11,6 @@ import subprocess
 import json
 # import salt
 
-SATIS = True
-
-
-def __virtual__():
-    '''
-    Only load this module if compose is installed.
-    '''
-    if SATIS:
-        return 'satis'
-    return False
-
-
 def add_package(name, version='*', rebuild=False):
     '''
     Add a package to the "require" section of the config
