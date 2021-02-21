@@ -4,8 +4,6 @@ include:
 apache-mod-ssl:
   apache_module.enabled:
     - name: ssl
-    - listen_in:
-      - service: apache2
 
 apache-ssl-protocols:
   file.replace:
@@ -15,5 +13,3 @@ apache-ssl-protocols:
     - append_if_not_found: True
     - require:
       - apache_module: apache-mod-ssl
-    - listen_in:
-      - service: apache2
