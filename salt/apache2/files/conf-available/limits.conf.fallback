@@ -1,0 +1,9 @@
+# Fallback Limits
+<IfModule mpm_prefork_module>
+    StartServers          8
+    MinSpareServers       4
+    MaxSpareServers       8
+    MaxClients            128
+    ServerLimit           128
+    MaxRequestsPerChild   1024
+</IfModule>

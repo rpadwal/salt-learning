@@ -11,6 +11,21 @@ import subprocess
 import json
 # import salt
 
+log = logging.getLogger(__name__)
+
+# Verify proper role
+SATIS = os.access('/usr/bin/compose', os.F_OK)
+
+
+def __virtual__():
+    '''
+    Only load this module if compose is installed.
+    '''
+    if SATIS:
+        return 'satis'
+    return False
+
+
 def add_package(name, version='*', rebuild=False):
     '''
     Add a package to the "require" section of the config
@@ -136,7 +151,7 @@ def build(pkgs=None, repo=None):
         return error.output
 
 
-def add_repo(repo_type, url, auth=False, rebuild=False, bitbucket=False):
+def add_repo(repo_type, url, auth=False, rebuild=False):
     '''
     Add a repository to the Satis configuration file
 
@@ -156,11 +171,7 @@ def add_repo(repo_type, url, auth=False, rebuild=False, bitbucket=False):
     # Load configuration file and set vars
     configfile = _load_config()
     result = {}
-
-    if bitbucket:
-        newrepo = {'type': str(repo_type), 'url': str(url), 'options': {'ssh2': { 'username': 'release', 'pubkey_file': '/home/release/.ssh/id_rsa.pub', 'privkey_file': '/home/release/.ssh/id_rsa' } } }
-    else:
-        newrepo = {'type': str(repo_type), 'url': str(url)}
+    newrepo = {'type': str(repo_type), 'url': str(url)}
 
     # Iterate through the list and make sure that the new repo does not already exist
     for i, val in enumerate(configfile['repositories']):
@@ -193,7 +204,7 @@ def add_repo(repo_type, url, auth=False, rebuild=False, bitbucket=False):
     return result
 
 
-def remove_repo(repo_type, url, bitbucket=False):
+def remove_repo(repo_type, url):
     '''
     Removes a repository from the list
 
@@ -211,17 +222,13 @@ def remove_repo(repo_type, url, bitbucket=False):
     # Load configuration file and set vars
     configfile = _load_config()
     result = {}
-
-    if bitbucket:
-        deadrepo = {'type': str(repo_type), 'url': str(url), 'options': {'ssh2': { 'username': 'release', 'pubkey_file': '/home/release/.ssh/id_rsa.pub', 'privkey_file': '/home/release/.ssh/id_rsa' } } }
-    else:
-        deadrepo = {'type': str(repo_type), 'url': str(url)}
+    deadrepo = {'type': str(repo_type), 'url': str(url)}
 
     # Iterate through the list and make sure that the repo exists
     for i, val in enumerate(configfile['repositories']):
         if val == deadrepo:
             configfile['repositories'].remove(deadrepo)
-            #log.info("Removed repo %s of type %s at index %s", str(url), str(repo_type), str(i))
+            log.info("Removed repo %s of type %s at index %s", str(url), str(repo_type), str(i))
 
     # Note the new repository list
     result['list'] = configfile['repositories']
@@ -231,7 +238,7 @@ def remove_repo(repo_type, url, bitbucket=False):
 
     # Write out the change to the file
     result['file'] = _write_config(configfile)
-    #log.info("Removing repository type %s, URL %s from the repository list.", str(repo_type), str(url))
+    log.info("Removing repository type %s, URL %s from the repository list.", str(repo_type), str(url))
 
     # Run the rebuild command to apply the changes
     # result['rebuild'] = build()

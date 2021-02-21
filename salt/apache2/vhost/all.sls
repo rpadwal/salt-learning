@@ -1,0 +1,23 @@
+include:
+  - apache.install
+  - .clientadmin
+  - .common
+  - .adminsync
+  - .callcenter
+  - .chat
+  - .entrata
+  - .entrataleasing
+  - .gateway
+  - .ha
+  - .jobs
+  - .medialibrary
+  - .prospectportal
+  - .residentinsure
+  - .residentpay
+  - .residentportal
+{#-  - .residentsync #}
+  - .residentverify
+  - .sms
+  - .system
+  - .vendoraccess
+  - .wwwentrata

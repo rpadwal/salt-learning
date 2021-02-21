@@ -1,0 +1,9 @@
+# ProspectPortal Limits
+<IfModule mpm_prefork_module>
+    StartServers          19
+    MinSpareServers       3
+    MaxSpareServers       6
+    MaxClients            28
+    ServerLimit           64
+    MaxRequestsPerChild   1024
+</IfModule>

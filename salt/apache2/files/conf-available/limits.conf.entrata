@@ -1,0 +1,9 @@
+# Entrata Limits
+<IfModule mpm_prefork_module>
+    StartServers          29
+    MinSpareServers       5
+    MaxSpareServers       10
+    MaxClients            28
+    ServerLimit           96
+    MaxRequestsPerChild   1024
+</IfModule>

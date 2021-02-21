@@ -1,0 +1,9 @@
+# wwwentrata Limits
+<IfModule mpm_prefork_module>
+    StartServers          77
+    MinSpareServers       13
+    MaxSpareServers       26
+    MaxClients            256
+    ServerLimit           256
+    MaxRequestsPerChild   1024
+</IfModule>
