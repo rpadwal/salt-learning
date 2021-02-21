@@ -3,7 +3,7 @@ include:
 
 /etc/apache2/sites-available/satis.conf:
   file.managed:
-    - source: salt://apache/vhost/files/satis.conf
+    - source: salt://apache2/vhost/files/satis.conf
     - user: root
     - group: root
     - mode: 0644
