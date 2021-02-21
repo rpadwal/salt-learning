@@ -1,3 +1,0 @@
-php-apcu:
-  pkg.installed:
-    -

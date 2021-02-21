@@ -1,5 +1,0 @@
-{% set libapache2_mod_php_pkg = salt['grains.filter_by']({
-    '14.04': 'libapache2-mod-php5',
-    '18.04': 'libapache2-mod-php7.3',
-    'default': 'libapache2-mod-php'
-}, grain='osrelease', default='default') %}

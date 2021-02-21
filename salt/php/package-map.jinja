@@ -1,5 +1,0 @@
-{% set php_pkg = salt['grains.filter_by']({
-    '14.04': 'php5',
-    '18.04': 'php7.3',
-    'default': 'php'
-}, grain='osrelease', default='default') %}
