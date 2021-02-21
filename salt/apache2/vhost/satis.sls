@@ -8,12 +8,8 @@ include:
     - group: root
     - mode: 0644
     - template: jinja
-    - listen_in:
-      - service: apache2
 
 /etc/apache2/sites-enabled/satis.conf:
   file.symlink:
     - target: /etc/apache2/sites-available/satis.conf
     - force: True
-    - listen_in:
-      - service: apache2
