@@ -1,4 +1,4 @@
-{% from "apache/mod/php-map.jinja" import libapache2_mod_php_pkg with context %}
+{% from "apache2/mod/php-map.jinja" import libapache2_mod_php_pkg with context %}
 
 include:
   - apache.install

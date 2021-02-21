@@ -1,7 +1,7 @@
 include:
   - apache2.install
   - apache2.mod.ssl
-  - apache2.cert.star-entrata-com
+#  - apache2.cert.star-entrata-com
   - apache2.mod.php
   - apache2.mod.rewrite
   - apache2.vhost.satis
